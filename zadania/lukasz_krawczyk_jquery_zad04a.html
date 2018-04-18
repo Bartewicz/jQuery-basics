@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zadanie 4a. Efekty specjalne (animacje)</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="Author" content="Łukasz Krawczyk (Web Developer / Graphic &amp; Web Designer)" />
+	
+	<style>
+		input[type="button"] { font-size: large; }
+		div.control { margin: 0 auto; text-align: center; }
+		div.weirdo { width: 175px; height: 175px; border: 1px solid #ccc; margin-top: 20px; position: absolute; }
+		img { width: 100%; height: 100%; border-radius: 100%; }
+	</style>
+	
+</head>
+<body>
+
+	<div class="control"><input type="button" value="W górę" /></div>
+	<div class="control"><input type="button" value="W lewo" /><input type="button" value="W prawo" /></div>
+	<div class="control"><input type="button" value="W dół" /></div>
+	<div class="weirdo"><img src="portrait.jpg" alt="Bartosz Wojtalewicz"/></div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script>
+		// Wykorzystaj metodę .animate() oraz przyciski "W lewo" i "W prawo", żeby otrzymać prostokąt przesuwający się w poziomie o 400px po naciśnięciu odpowiedniego przycisku.
+		
+		$(function() {
+			$('input[type="button"]').click(
+			    function () {
+					var kierunek = $(this).val()
+					if (
+					    kierunek === "W lewo"
+					) { $('div.weirdo').animate( { left: '-=100' }, 200) }
+					else if (
+					    kierunek === "W prawo"
+					) { $('div.weirdo').animate( { left: '+=100' }, 200) }
+					else if (
+					    kierunek === "W górę"
+					) { $('div.weirdo').animate( { top: '-=100' }, 200) }
+					else if (
+					    kierunek === "W dół"
+					) { $('div.weirdo').animate( { top: '+=100' }, 200) }
+
+                }
+			)
+		});
+	</script>
+	
+</body>
+</html>
